@@ -1,0 +1,1 @@
+enum TossDecisionEnum { batFirst, bowlFirst }
