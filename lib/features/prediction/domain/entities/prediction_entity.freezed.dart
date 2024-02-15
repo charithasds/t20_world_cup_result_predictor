@@ -21,6 +21,7 @@ PredictionEntity _$PredictionEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PredictionEntity {
   String get fixtureId => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
   TeamEntity? get tossTeam => throw _privateConstructorUsedError;
   TossDecisionEnum? get tossDecision => throw _privateConstructorUsedError;
   int? get team1Score => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ mixin _$PredictionEntity {
   TeamEntity? get winner => throw _privateConstructorUsedError;
   ResultTypeEnum get resultType => throw _privateConstructorUsedError;
   int? get resultValue => throw _privateConstructorUsedError;
+  double get predictionAccuracy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,6 +55,7 @@ abstract class $PredictionEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {String fixtureId,
+      String userId,
       TeamEntity? tossTeam,
       TossDecisionEnum? tossDecision,
       int? team1Score,
@@ -69,7 +72,8 @@ abstract class $PredictionEntityCopyWith<$Res> {
       TieBreakerEnum? tieBreaker,
       TeamEntity? winner,
       ResultTypeEnum resultType,
-      int? resultValue});
+      int? resultValue,
+      double predictionAccuracy});
 
   $TeamEntityCopyWith<$Res>? get tossTeam;
   $TeamEntityCopyWith<$Res>? get winner;
@@ -89,6 +93,7 @@ class _$PredictionEntityCopyWithImpl<$Res, $Val extends PredictionEntity>
   @override
   $Res call({
     Object? fixtureId = null,
+    Object? userId = null,
     Object? tossTeam = freezed,
     Object? tossDecision = freezed,
     Object? team1Score = freezed,
@@ -106,11 +111,16 @@ class _$PredictionEntityCopyWithImpl<$Res, $Val extends PredictionEntity>
     Object? winner = freezed,
     Object? resultType = null,
     Object? resultValue = freezed,
+    Object? predictionAccuracy = null,
   }) {
     return _then(_value.copyWith(
       fixtureId: null == fixtureId
           ? _value.fixtureId
           : fixtureId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       tossTeam: freezed == tossTeam
           ? _value.tossTeam
@@ -180,6 +190,10 @@ class _$PredictionEntityCopyWithImpl<$Res, $Val extends PredictionEntity>
           ? _value.resultValue
           : resultValue // ignore: cast_nullable_to_non_nullable
               as int?,
+      predictionAccuracy: null == predictionAccuracy
+          ? _value.predictionAccuracy
+          : predictionAccuracy // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 
@@ -218,6 +232,7 @@ abstract class _$$PredictionEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {String fixtureId,
+      String userId,
       TeamEntity? tossTeam,
       TossDecisionEnum? tossDecision,
       int? team1Score,
@@ -234,7 +249,8 @@ abstract class _$$PredictionEntityImplCopyWith<$Res>
       TieBreakerEnum? tieBreaker,
       TeamEntity? winner,
       ResultTypeEnum resultType,
-      int? resultValue});
+      int? resultValue,
+      double predictionAccuracy});
 
   @override
   $TeamEntityCopyWith<$Res>? get tossTeam;
@@ -254,6 +270,7 @@ class __$$PredictionEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? fixtureId = null,
+    Object? userId = null,
     Object? tossTeam = freezed,
     Object? tossDecision = freezed,
     Object? team1Score = freezed,
@@ -271,11 +288,16 @@ class __$$PredictionEntityImplCopyWithImpl<$Res>
     Object? winner = freezed,
     Object? resultType = null,
     Object? resultValue = freezed,
+    Object? predictionAccuracy = null,
   }) {
     return _then(_$PredictionEntityImpl(
       fixtureId: null == fixtureId
           ? _value.fixtureId
           : fixtureId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
       tossTeam: freezed == tossTeam
           ? _value.tossTeam
@@ -345,6 +367,10 @@ class __$$PredictionEntityImplCopyWithImpl<$Res>
           ? _value.resultValue
           : resultValue // ignore: cast_nullable_to_non_nullable
               as int?,
+      predictionAccuracy: null == predictionAccuracy
+          ? _value.predictionAccuracy
+          : predictionAccuracy // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -356,6 +382,7 @@ class _$PredictionEntityImpl
     implements _PredictionEntity {
   const _$PredictionEntityImpl(
       {required this.fixtureId,
+      required this.userId,
       required this.tossTeam,
       required this.tossDecision,
       required this.team1Score,
@@ -372,13 +399,16 @@ class _$PredictionEntityImpl
       required this.tieBreaker,
       required this.winner,
       required this.resultType,
-      required this.resultValue});
+      required this.resultValue,
+      required this.predictionAccuracy});
 
   factory _$PredictionEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$PredictionEntityImplFromJson(json);
 
   @override
   final String fixtureId;
+  @override
+  final String userId;
   @override
   final TeamEntity? tossTeam;
   @override
@@ -413,10 +443,12 @@ class _$PredictionEntityImpl
   final ResultTypeEnum resultType;
   @override
   final int? resultValue;
+  @override
+  final double predictionAccuracy;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PredictionEntity(fixtureId: $fixtureId, tossTeam: $tossTeam, tossDecision: $tossDecision, team1Score: $team1Score, team1Overs: $team1Overs, team1Balls: $team1Balls, targetScore: $targetScore, targetOvers: $targetOvers, targetBalls: $targetBalls, team2Score: $team2Score, team2Overs: $team2Overs, team2Balls: $team2Balls, isDLS: $isDLS, isTied: $isTied, tieBreaker: $tieBreaker, winner: $winner, resultType: $resultType, resultValue: $resultValue)';
+    return 'PredictionEntity(fixtureId: $fixtureId, userId: $userId, tossTeam: $tossTeam, tossDecision: $tossDecision, team1Score: $team1Score, team1Overs: $team1Overs, team1Balls: $team1Balls, targetScore: $targetScore, targetOvers: $targetOvers, targetBalls: $targetBalls, team2Score: $team2Score, team2Overs: $team2Overs, team2Balls: $team2Balls, isDLS: $isDLS, isTied: $isTied, tieBreaker: $tieBreaker, winner: $winner, resultType: $resultType, resultValue: $resultValue, predictionAccuracy: $predictionAccuracy)';
   }
 
   @override
@@ -425,6 +457,7 @@ class _$PredictionEntityImpl
     properties
       ..add(DiagnosticsProperty('type', 'PredictionEntity'))
       ..add(DiagnosticsProperty('fixtureId', fixtureId))
+      ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('tossTeam', tossTeam))
       ..add(DiagnosticsProperty('tossDecision', tossDecision))
       ..add(DiagnosticsProperty('team1Score', team1Score))
@@ -441,7 +474,8 @@ class _$PredictionEntityImpl
       ..add(DiagnosticsProperty('tieBreaker', tieBreaker))
       ..add(DiagnosticsProperty('winner', winner))
       ..add(DiagnosticsProperty('resultType', resultType))
-      ..add(DiagnosticsProperty('resultValue', resultValue));
+      ..add(DiagnosticsProperty('resultValue', resultValue))
+      ..add(DiagnosticsProperty('predictionAccuracy', predictionAccuracy));
   }
 
   @override
@@ -451,6 +485,7 @@ class _$PredictionEntityImpl
             other is _$PredictionEntityImpl &&
             (identical(other.fixtureId, fixtureId) ||
                 other.fixtureId == fixtureId) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.tossTeam, tossTeam) ||
                 other.tossTeam == tossTeam) &&
             (identical(other.tossDecision, tossDecision) ||
@@ -481,31 +516,36 @@ class _$PredictionEntityImpl
             (identical(other.resultType, resultType) ||
                 other.resultType == resultType) &&
             (identical(other.resultValue, resultValue) ||
-                other.resultValue == resultValue));
+                other.resultValue == resultValue) &&
+            (identical(other.predictionAccuracy, predictionAccuracy) ||
+                other.predictionAccuracy == predictionAccuracy));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      fixtureId,
-      tossTeam,
-      tossDecision,
-      team1Score,
-      team1Overs,
-      team1Balls,
-      targetScore,
-      targetOvers,
-      targetBalls,
-      team2Score,
-      team2Overs,
-      team2Balls,
-      isDLS,
-      isTied,
-      tieBreaker,
-      winner,
-      resultType,
-      resultValue);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        fixtureId,
+        userId,
+        tossTeam,
+        tossDecision,
+        team1Score,
+        team1Overs,
+        team1Balls,
+        targetScore,
+        targetOvers,
+        targetBalls,
+        team2Score,
+        team2Overs,
+        team2Balls,
+        isDLS,
+        isTied,
+        tieBreaker,
+        winner,
+        resultType,
+        resultValue,
+        predictionAccuracy
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -525,6 +565,7 @@ class _$PredictionEntityImpl
 abstract class _PredictionEntity implements PredictionEntity {
   const factory _PredictionEntity(
       {required final String fixtureId,
+      required final String userId,
       required final TeamEntity? tossTeam,
       required final TossDecisionEnum? tossDecision,
       required final int? team1Score,
@@ -541,13 +582,16 @@ abstract class _PredictionEntity implements PredictionEntity {
       required final TieBreakerEnum? tieBreaker,
       required final TeamEntity? winner,
       required final ResultTypeEnum resultType,
-      required final int? resultValue}) = _$PredictionEntityImpl;
+      required final int? resultValue,
+      required final double predictionAccuracy}) = _$PredictionEntityImpl;
 
   factory _PredictionEntity.fromJson(Map<String, dynamic> json) =
       _$PredictionEntityImpl.fromJson;
 
   @override
   String get fixtureId;
+  @override
+  String get userId;
   @override
   TeamEntity? get tossTeam;
   @override
@@ -582,6 +626,8 @@ abstract class _PredictionEntity implements PredictionEntity {
   ResultTypeEnum get resultType;
   @override
   int? get resultValue;
+  @override
+  double get predictionAccuracy;
   @override
   @JsonKey(ignore: true)
   _$$PredictionEntityImplCopyWith<_$PredictionEntityImpl> get copyWith =>

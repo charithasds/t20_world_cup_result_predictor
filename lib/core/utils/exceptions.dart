@@ -1,0 +1,1 @@
+class InternetConnectionException implements Exception {}

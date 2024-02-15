@@ -14,6 +14,7 @@ part 'prediction_entity.g.dart';
 class PredictionEntity with _$PredictionEntity {
   const factory PredictionEntity({
     required String fixtureId,
+    required String userId,
     required TeamEntity? tossTeam,
     required TossDecisionEnum? tossDecision,
     required int? team1Score,
@@ -31,6 +32,7 @@ class PredictionEntity with _$PredictionEntity {
     required TeamEntity? winner,
     required ResultTypeEnum resultType,
     required int? resultValue,
+    required double predictionAccuracy,
   }) = _PredictionEntity;
 
   factory PredictionEntity.fromJson(Map<String, Object?> json) =>

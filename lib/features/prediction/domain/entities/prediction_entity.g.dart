@@ -10,6 +10,7 @@ _$PredictionEntityImpl _$$PredictionEntityImplFromJson(
         Map<String, dynamic> json) =>
     _$PredictionEntityImpl(
       fixtureId: json['fixtureId'] as String,
+      userId: json['userId'] as String,
       tossTeam: json['tossTeam'] == null
           ? null
           : TeamEntity.fromJson(json['tossTeam'] as Map<String, dynamic>),
@@ -33,12 +34,14 @@ _$PredictionEntityImpl _$$PredictionEntityImplFromJson(
           : TeamEntity.fromJson(json['winner'] as Map<String, dynamic>),
       resultType: $enumDecode(_$ResultTypeEnumEnumMap, json['resultType']),
       resultValue: json['resultValue'] as int?,
+      predictionAccuracy: (json['predictionAccuracy'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$PredictionEntityImplToJson(
         _$PredictionEntityImpl instance) =>
     <String, dynamic>{
       'fixtureId': instance.fixtureId,
+      'userId': instance.userId,
       'tossTeam': instance.tossTeam,
       'tossDecision': _$TossDecisionEnumEnumMap[instance.tossDecision],
       'team1Score': instance.team1Score,
@@ -56,6 +59,7 @@ Map<String, dynamic> _$$PredictionEntityImplToJson(
       'winner': instance.winner,
       'resultType': _$ResultTypeEnumEnumMap[instance.resultType]!,
       'resultValue': instance.resultValue,
+      'predictionAccuracy': instance.predictionAccuracy,
     };
 
 const _$TossDecisionEnumEnumMap = {
