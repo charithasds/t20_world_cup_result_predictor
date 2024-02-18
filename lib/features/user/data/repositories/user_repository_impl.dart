@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/utils/errors.dart';
 import '../../../../core/utils/exceptions.dart';
@@ -7,6 +8,8 @@ import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/user_repository.dart';
 import '../datasources/user_remote_data_source.dart';
 import '../models/user_model.dart';
+
+part 'user_repository_impl.g.dart';
 
 class UserRepositoryImpl implements UserRepository {
   UserRepositoryImpl({required this.userDataSource});
@@ -56,3 +59,7 @@ class UserRepositoryImpl implements UserRepository {
     throw UnimplementedError();
   }
 }
+
+@riverpod
+UserRepository userRepository(UserRepositoryRef ref) =>
+    UserRepositoryImpl(userDataSource: ref.read(userRemoteDataSourceProvider));
