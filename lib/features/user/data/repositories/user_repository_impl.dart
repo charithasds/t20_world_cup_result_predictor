@@ -7,7 +7,6 @@ import '../../../../core/utils/params.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/user_repository.dart';
 import '../datasources/user_remote_data_source.dart';
-import '../models/user_model.dart';
 
 part 'user_repository_impl.g.dart';
 
@@ -17,26 +16,20 @@ class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource userDataSource;
 
   @override
-  Future<Either<Error, UserEntity>> create({
-    required UserParams userParams,
-  }) async {
-    final UserModel userModel;
-    final UserEntity userEntity;
-
+  Future<Either<Error, void>> create({required UserParams userParams}) async {
     try {
-      userModel = await userDataSource.create(userParams: userParams);
-      userEntity = UserEntity.fromJson(userModel.toJson());
+      await userDataSource.create(userParams: userParams);
 
-      return Right<Error, UserEntity>(userEntity);
+      return const Right<Error, void>(null);
     } on InternetConnectionException {
-      return Left<Error, UserEntity>(
+      return Left<Error, void>(
         InternetConnectionError(message: 'Error connecting to the internet'),
       );
     }
   }
 
   @override
-  Future<Either<Error, UserEntity>> delete({
+  Future<Either<Error, void>> delete({
     required UserParams userParams,
   }) async {
     // TODO: implement delete
@@ -52,7 +45,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<Error, UserEntity>> update({
+  Future<Either<Error, void>> update({
     required UserParams userParams,
   }) async {
     // TODO: implement update

@@ -1,36 +1,25 @@
-// import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-// import '../../../../core/utils/exceptions.dart';
+import '../../../../core/utils/exceptions.dart';
 import '../../../../core/utils/params.dart';
-import '../models/user_model.dart';
 
 part 'user_remote_data_source.g.dart';
 
 class UserRemoteDataSource {
-  // UserRemoteDataSource({required this.internetConnection});
-
-  // final InternetConnection internetConnection;
-
   UserRemoteDataSource({required this.internetConnection});
-  final String internetConnection;
 
-  Future<UserModel> create({required UserParams userParams}) async {
-    // final bool hasInternetAccess = await internetConnection.hasInternetAccess;
+  final InternetConnection internetConnection;
 
-    // if (!hasInternetAccess) {
-    //   throw InternetConnectionException();
-    // }
+  Future<void> create({required UserParams userParams}) async {
+    final bool hasInternetAccess = await internetConnection.hasInternetAccess;
 
-    const String x = 'x';
-
-    return const UserModel(
-      id: x,
-      favoriteTeam: FavoriteTeamModel(code: x, name: x, path: x),
-    );
+    if (!hasInternetAccess) {
+      throw InternetConnectionException();
+    }
   }
 }
 
 @riverpod
 UserRemoteDataSource userRemoteDataSource(UserRemoteDataSourceRef ref) =>
-    UserRemoteDataSource(internetConnection: 'x');
+    UserRemoteDataSource(internetConnection: InternetConnection());
