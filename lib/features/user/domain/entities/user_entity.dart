@@ -8,7 +8,7 @@ part 'user_entity.g.dart';
 class UserEntity with _$UserEntity {
   const factory UserEntity({
     required String id,
-    required FavoriteTeamEntity? favoriteTeam,
+    required FavoriteTeam? favoriteTeam,
   }) = _UserEntity;
 
   factory UserEntity.fromJson(Map<String, Object?> json) =>
@@ -16,13 +16,13 @@ class UserEntity with _$UserEntity {
 }
 
 @freezed
-class FavoriteTeamEntity with _$FavoriteTeamEntity {
-  const factory FavoriteTeamEntity({
+class FavoriteTeam with _$FavoriteTeam {
+  const factory FavoriteTeam({
     required String code,
     required String name,
     required String path,
-  }) = _FavoriteTeamEntity;
+  }) = _FavoriteTeam;
 
-  factory FavoriteTeamEntity.fromJson(Map<String, Object?> json) =>
-      _$FavoriteTeamEntityFromJson(json);
+  factory FavoriteTeam.fromJson(Map<String, Object?> json) =>
+      _$FavoriteTeamFromJson(json);
 }

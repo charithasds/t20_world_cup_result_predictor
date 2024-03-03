@@ -11,8 +11,7 @@ _$UserEntityImpl _$$UserEntityImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       favoriteTeam: json['favoriteTeam'] == null
           ? null
-          : FavoriteTeamEntity.fromJson(
-              json['favoriteTeam'] as Map<String, dynamic>),
+          : FavoriteTeam.fromJson(json['favoriteTeam'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserEntityImplToJson(_$UserEntityImpl instance) =>
@@ -21,16 +20,14 @@ Map<String, dynamic> _$$UserEntityImplToJson(_$UserEntityImpl instance) =>
       'favoriteTeam': instance.favoriteTeam,
     };
 
-_$FavoriteTeamEntityImpl _$$FavoriteTeamEntityImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FavoriteTeamEntityImpl(
+_$FavoriteTeamImpl _$$FavoriteTeamImplFromJson(Map<String, dynamic> json) =>
+    _$FavoriteTeamImpl(
       code: json['code'] as String,
       name: json['name'] as String,
       path: json['path'] as String,
     );
 
-Map<String, dynamic> _$$FavoriteTeamEntityImplToJson(
-        _$FavoriteTeamEntityImpl instance) =>
+Map<String, dynamic> _$$FavoriteTeamImplToJson(_$FavoriteTeamImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'name': instance.name,

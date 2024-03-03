@@ -3,7 +3,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/utils/errors.dart';
 import '../../../../core/utils/exceptions.dart';
-import '../../../../core/utils/params.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/user_repository.dart';
 import '../datasources/user_remote_data_source.dart';
@@ -16,9 +15,9 @@ class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource userDataSource;
 
   @override
-  Future<Either<Error, void>> create({required UserParams userParams}) async {
+  Future<Either<Error, void>> create({required UserEntity userEntity}) async {
     try {
-      await userDataSource.create(userParams: userParams);
+      await userDataSource.create(userEntity: userEntity);
 
       return const Right<Error, void>(null);
     } on InternetConnectionException {
@@ -29,25 +28,19 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<Error, void>> delete({
-    required UserParams userParams,
-  }) async {
+  Future<Either<Error, void>> delete({required UserEntity userEntity}) async {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Error, List<UserEntity>>> read({
-    required UserParams userParams,
-  }) async {
+  Future<Either<Error, List<UserEntity>>> read() async {
     // TODO: implement read
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Error, void>> update({
-    required UserParams userParams,
-  }) async {
+  Future<Either<Error, void>> update({required UserEntity userEntity}) async {
     // TODO: implement update
     throw UnimplementedError();
   }

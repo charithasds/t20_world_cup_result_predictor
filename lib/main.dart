@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/navigation/navigation_manager.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => const MaterialApp(
-        title: 'T20 World Cup Result Predictor',
-        home: MyHomePage(),
-      );
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final NavigationManager navigationManager =
+        ref.read(navigationManagerProvider);
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+    navigationManager.instance;
 
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('T20 World Cup Result Predictor')),
-        body: const Center(child: Text('T20 World Cup Result Predictor')),
-      );
+    return MaterialApp.router(
+      routerConfig: navigationManager.goRouter,
+      title: 'T20 World Cup Result Predictor',
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }

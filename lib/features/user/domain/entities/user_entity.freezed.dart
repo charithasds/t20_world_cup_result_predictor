@@ -21,7 +21,7 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserEntity {
   String get id => throw _privateConstructorUsedError;
-  FavoriteTeamEntity? get favoriteTeam => throw _privateConstructorUsedError;
+  FavoriteTeam? get favoriteTeam => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,9 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
-  $Res call({String id, FavoriteTeamEntity? favoriteTeam});
+  $Res call({String id, FavoriteTeam? favoriteTeam});
 
-  $FavoriteTeamEntityCopyWith<$Res>? get favoriteTeam;
+  $FavoriteTeamCopyWith<$Res>? get favoriteTeam;
 }
 
 /// @nodoc
@@ -64,18 +64,18 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
       favoriteTeam: freezed == favoriteTeam
           ? _value.favoriteTeam
           : favoriteTeam // ignore: cast_nullable_to_non_nullable
-              as FavoriteTeamEntity?,
+              as FavoriteTeam?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FavoriteTeamEntityCopyWith<$Res>? get favoriteTeam {
+  $FavoriteTeamCopyWith<$Res>? get favoriteTeam {
     if (_value.favoriteTeam == null) {
       return null;
     }
 
-    return $FavoriteTeamEntityCopyWith<$Res>(_value.favoriteTeam!, (value) {
+    return $FavoriteTeamCopyWith<$Res>(_value.favoriteTeam!, (value) {
       return _then(_value.copyWith(favoriteTeam: value) as $Val);
     });
   }
@@ -89,10 +89,10 @@ abstract class _$$UserEntityImplCopyWith<$Res>
       __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, FavoriteTeamEntity? favoriteTeam});
+  $Res call({String id, FavoriteTeam? favoriteTeam});
 
   @override
-  $FavoriteTeamEntityCopyWith<$Res>? get favoriteTeam;
+  $FavoriteTeamCopyWith<$Res>? get favoriteTeam;
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$$UserEntityImplCopyWithImpl<$Res>
       favoriteTeam: freezed == favoriteTeam
           ? _value.favoriteTeam
           : favoriteTeam // ignore: cast_nullable_to_non_nullable
-              as FavoriteTeamEntity?,
+              as FavoriteTeam?,
     ));
   }
 }
@@ -133,7 +133,7 @@ class _$UserEntityImpl with DiagnosticableTreeMixin implements _UserEntity {
   @override
   final String id;
   @override
-  final FavoriteTeamEntity? favoriteTeam;
+  final FavoriteTeam? favoriteTeam;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -180,7 +180,7 @@ class _$UserEntityImpl with DiagnosticableTreeMixin implements _UserEntity {
 abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
       {required final String id,
-      required final FavoriteTeamEntity? favoriteTeam}) = _$UserEntityImpl;
+      required final FavoriteTeam? favoriteTeam}) = _$UserEntityImpl;
 
   factory _UserEntity.fromJson(Map<String, dynamic> json) =
       _$UserEntityImpl.fromJson;
@@ -188,42 +188,42 @@ abstract class _UserEntity implements UserEntity {
   @override
   String get id;
   @override
-  FavoriteTeamEntity? get favoriteTeam;
+  FavoriteTeam? get favoriteTeam;
   @override
   @JsonKey(ignore: true)
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-FavoriteTeamEntity _$FavoriteTeamEntityFromJson(Map<String, dynamic> json) {
-  return _FavoriteTeamEntity.fromJson(json);
+FavoriteTeam _$FavoriteTeamFromJson(Map<String, dynamic> json) {
+  return _FavoriteTeam.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FavoriteTeamEntity {
+mixin _$FavoriteTeam {
   String get code => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FavoriteTeamEntityCopyWith<FavoriteTeamEntity> get copyWith =>
+  $FavoriteTeamCopyWith<FavoriteTeam> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FavoriteTeamEntityCopyWith<$Res> {
-  factory $FavoriteTeamEntityCopyWith(
-          FavoriteTeamEntity value, $Res Function(FavoriteTeamEntity) then) =
-      _$FavoriteTeamEntityCopyWithImpl<$Res, FavoriteTeamEntity>;
+abstract class $FavoriteTeamCopyWith<$Res> {
+  factory $FavoriteTeamCopyWith(
+          FavoriteTeam value, $Res Function(FavoriteTeam) then) =
+      _$FavoriteTeamCopyWithImpl<$Res, FavoriteTeam>;
   @useResult
   $Res call({String code, String name, String path});
 }
 
 /// @nodoc
-class _$FavoriteTeamEntityCopyWithImpl<$Res, $Val extends FavoriteTeamEntity>
-    implements $FavoriteTeamEntityCopyWith<$Res> {
-  _$FavoriteTeamEntityCopyWithImpl(this._value, this._then);
+class _$FavoriteTeamCopyWithImpl<$Res, $Val extends FavoriteTeam>
+    implements $FavoriteTeamCopyWith<$Res> {
+  _$FavoriteTeamCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -255,22 +255,22 @@ class _$FavoriteTeamEntityCopyWithImpl<$Res, $Val extends FavoriteTeamEntity>
 }
 
 /// @nodoc
-abstract class _$$FavoriteTeamEntityImplCopyWith<$Res>
-    implements $FavoriteTeamEntityCopyWith<$Res> {
-  factory _$$FavoriteTeamEntityImplCopyWith(_$FavoriteTeamEntityImpl value,
-          $Res Function(_$FavoriteTeamEntityImpl) then) =
-      __$$FavoriteTeamEntityImplCopyWithImpl<$Res>;
+abstract class _$$FavoriteTeamImplCopyWith<$Res>
+    implements $FavoriteTeamCopyWith<$Res> {
+  factory _$$FavoriteTeamImplCopyWith(
+          _$FavoriteTeamImpl value, $Res Function(_$FavoriteTeamImpl) then) =
+      __$$FavoriteTeamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String code, String name, String path});
 }
 
 /// @nodoc
-class __$$FavoriteTeamEntityImplCopyWithImpl<$Res>
-    extends _$FavoriteTeamEntityCopyWithImpl<$Res, _$FavoriteTeamEntityImpl>
-    implements _$$FavoriteTeamEntityImplCopyWith<$Res> {
-  __$$FavoriteTeamEntityImplCopyWithImpl(_$FavoriteTeamEntityImpl _value,
-      $Res Function(_$FavoriteTeamEntityImpl) _then)
+class __$$FavoriteTeamImplCopyWithImpl<$Res>
+    extends _$FavoriteTeamCopyWithImpl<$Res, _$FavoriteTeamImpl>
+    implements _$$FavoriteTeamImplCopyWith<$Res> {
+  __$$FavoriteTeamImplCopyWithImpl(
+      _$FavoriteTeamImpl _value, $Res Function(_$FavoriteTeamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -280,7 +280,7 @@ class __$$FavoriteTeamEntityImplCopyWithImpl<$Res>
     Object? name = null,
     Object? path = null,
   }) {
-    return _then(_$FavoriteTeamEntityImpl(
+    return _then(_$FavoriteTeamImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -299,14 +299,12 @@ class __$$FavoriteTeamEntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FavoriteTeamEntityImpl
-    with DiagnosticableTreeMixin
-    implements _FavoriteTeamEntity {
-  const _$FavoriteTeamEntityImpl(
+class _$FavoriteTeamImpl with DiagnosticableTreeMixin implements _FavoriteTeam {
+  const _$FavoriteTeamImpl(
       {required this.code, required this.name, required this.path});
 
-  factory _$FavoriteTeamEntityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FavoriteTeamEntityImplFromJson(json);
+  factory _$FavoriteTeamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FavoriteTeamImplFromJson(json);
 
   @override
   final String code;
@@ -317,14 +315,14 @@ class _$FavoriteTeamEntityImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FavoriteTeamEntity(code: $code, name: $name, path: $path)';
+    return 'FavoriteTeam(code: $code, name: $name, path: $path)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'FavoriteTeamEntity'))
+      ..add(DiagnosticsProperty('type', 'FavoriteTeam'))
       ..add(DiagnosticsProperty('code', code))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('path', path));
@@ -334,7 +332,7 @@ class _$FavoriteTeamEntityImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FavoriteTeamEntityImpl &&
+            other is _$FavoriteTeamImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.path, path) || other.path == path));
@@ -347,26 +345,25 @@ class _$FavoriteTeamEntityImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FavoriteTeamEntityImplCopyWith<_$FavoriteTeamEntityImpl> get copyWith =>
-      __$$FavoriteTeamEntityImplCopyWithImpl<_$FavoriteTeamEntityImpl>(
-          this, _$identity);
+  _$$FavoriteTeamImplCopyWith<_$FavoriteTeamImpl> get copyWith =>
+      __$$FavoriteTeamImplCopyWithImpl<_$FavoriteTeamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FavoriteTeamEntityImplToJson(
+    return _$$FavoriteTeamImplToJson(
       this,
     );
   }
 }
 
-abstract class _FavoriteTeamEntity implements FavoriteTeamEntity {
-  const factory _FavoriteTeamEntity(
+abstract class _FavoriteTeam implements FavoriteTeam {
+  const factory _FavoriteTeam(
       {required final String code,
       required final String name,
-      required final String path}) = _$FavoriteTeamEntityImpl;
+      required final String path}) = _$FavoriteTeamImpl;
 
-  factory _FavoriteTeamEntity.fromJson(Map<String, dynamic> json) =
-      _$FavoriteTeamEntityImpl.fromJson;
+  factory _FavoriteTeam.fromJson(Map<String, dynamic> json) =
+      _$FavoriteTeamImpl.fromJson;
 
   @override
   String get code;
@@ -376,6 +373,6 @@ abstract class _FavoriteTeamEntity implements FavoriteTeamEntity {
   String get path;
   @override
   @JsonKey(ignore: true)
-  _$$FavoriteTeamEntityImplCopyWith<_$FavoriteTeamEntityImpl> get copyWith =>
+  _$$FavoriteTeamImplCopyWith<_$FavoriteTeamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
