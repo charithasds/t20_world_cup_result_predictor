@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "165259757911",
+    "project_id": "t20-world-cup-result-predictor",
+    "storage_bucket": "t20-world-cup-result-predictor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165259757911:android:3f38b54ea9abb306f95612",
+        "android_client_info": {
+          "package_name": "com.charithasds.t20_world_cup_result_predictor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165259757911-3q74kr0okhoom9b1nj2kahuvlohas54h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.charithasds.t20_world_cup_result_predictor",
+            "certificate_hash": "eca6c4c81108081e076078ec4bd8be51afb8bd63"
+          }
+        },
+        {
+          "client_id": "165259757911-qv384beh46b73pphgt9neu0b0mep6sqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkB7-tyQpv0Pdy_-gvBgDyn7swNxisrJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165259757911-qv384beh46b73pphgt9neu0b0mep6sqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
