@@ -13,6 +13,17 @@ class ConnectivityRepositoryImpl implements ConnectivityRepository {
   final ConnectivityDataSource connectivityDataSource;
 
   @override
+  Either<Error, Stream<bool>> checkOnline() {
+    try {
+      final Stream<bool> checkOnline = connectivityDataSource.checkOnline();
+
+      return Right<Error, Stream<bool>>(checkOnline);
+    } on ConnectivityError catch (e) {
+      return Left<Error, Stream<bool>>(e);
+    }
+  }
+
+  @override
   Future<Either<Error, bool>> isOnline() async {
     final bool isOnline = await connectivityDataSource.isOnline();
 

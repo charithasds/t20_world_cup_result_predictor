@@ -4,20 +4,21 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../data/repositories/authentication_repository_impl.dart';
 import '../repositories/authentication_repository.dart';
 
-part 'is_logged_in_authentication.g.dart';
+part 'check_logged_in_authentication.g.dart';
 
-class IsLoggedInAuthentication {
-  IsLoggedInAuthentication({required this.authenticationRepository});
+class CheckLoggedInAuthentication {
+  CheckLoggedInAuthentication({required this.authenticationRepository});
 
   final AuthenticationRepository authenticationRepository;
 
-  Either<Error, Stream<void>> call() => authenticationRepository.isLoggedIn();
+  Either<Error, Stream<void>> call() =>
+      authenticationRepository.checkLoggedIn();
 }
 
 @riverpod
-IsLoggedInAuthentication isLoggedInAuthentication(
-  IsLoggedInAuthenticationRef ref,
+CheckLoggedInAuthentication checkLoggedInAuthentication(
+  CheckLoggedInAuthenticationRef ref,
 ) =>
-    IsLoggedInAuthentication(
+    CheckLoggedInAuthentication(
       authenticationRepository: ref.read(authenticationRepositoryProvider),
     );

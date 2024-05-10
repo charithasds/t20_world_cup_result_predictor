@@ -4,11 +4,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'connectivity_data_source.g.dart';
 
 class ConnectivityDataSource {
-  Future<bool> isOnline() async {
-    final FlutterNetworkConnectivity flutterNetworkConnectivity =
-        FlutterNetworkConnectivity();
-    return flutterNetworkConnectivity.isInternetConnectionAvailable();
-  }
+  Stream<bool> checkOnline() =>
+      FlutterNetworkConnectivity(isContinousLookUp: true)
+          .getInternetAvailabilityStream();
+
+  Future<bool> isOnline() async =>
+      FlutterNetworkConnectivity().isInternetConnectionAvailable();
 }
 
 @riverpod

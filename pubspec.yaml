@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+  envied: ^0.5.4+1
   firebase_auth: ^4.19.4
   firebase_core: ^2.30.1
   firebase_ui_auth: ^1.14.0
@@ -31,6 +32,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.4.8
+  envied_generator: ^0.5.4+1
   flutter_lints: ^3.0.1  
   freezed: ^2.4.7
   json_serializable: ^6.8.0

@@ -13,6 +13,18 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final AuthenticationDataSource authenticationDataSource;
 
   @override
+  Either<Error, Stream<void>> checkLoggedIn() {
+    try {
+      final Stream<void> checkLoggedIn =
+          authenticationDataSource.checkLoggedIn();
+
+      return Right<Error, Stream<void>>(checkLoggedIn);
+    } on ConnectivityError catch (e) {
+      return Left<Error, Stream<void>>(e);
+    }
+  }
+
+  @override
   Future<Either<Error, void>> initialize() async {
     try {
       await authenticationDataSource.initialize();
@@ -20,17 +32,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return const Right<Error, void>(null);
     } on ConnectivityError catch (e) {
       return Left<Error, void>(e);
-    }
-  }
-
-  @override
-  Either<Error, Stream<void>> isLoggedIn() {
-    try {
-      final Stream<void> isLoggedIn = authenticationDataSource.isLoggedIn();
-
-      return Right<Error, Stream<void>>(isLoggedIn);
-    } on ConnectivityError catch (e) {
-      return Left<Error, Stream<void>>(e);
     }
   }
 }
