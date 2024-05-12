@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../utils/errors/connectivity_error.dart';
 import '../../../env/env.dart';
+import '../../../errors/connectivity_error.dart';
+import '../../../errors/invalid_user_error.dart';
 import 'connectivity_data_source.dart';
 
 part 'authentication_data_source.g.dart';
@@ -18,12 +19,35 @@ class AuthenticationDataSource {
 
     if (!isOnline) {
       throw ConnectivityError();
+    }
+
+    yield* FirebaseAuth.instance.authStateChanges();
+  }
+
+  Future<String> getCurrentUserId() async {
+    final bool isOnline = await connectivityDataSource.isOnline();
+    User? user;
+
+    if (!isOnline) {
+      throw ConnectivityError();
+    }
+
+    user = FirebaseAuth.instance.currentUser;
+
+    if (user == null) {
+      throw InvalidUserError();
     } else {
-      yield* FirebaseAuth.instance.authStateChanges();
+      return user.uid;
     }
   }
 
-  Future<void> initialize() async {
+  Future<bool> initialize() async {
+    final bool isOnline = await connectivityDataSource.isOnline();
+
+    if (!isOnline) {
+      throw ConnectivityError();
+    }
+
     await Firebase.initializeApp(
       options: FirebaseOptions(
         apiKey: Env.apiKey,
@@ -32,6 +56,8 @@ class AuthenticationDataSource {
         projectId: Env.projectId,
       ),
     );
+
+    return true;
   }
 }
 

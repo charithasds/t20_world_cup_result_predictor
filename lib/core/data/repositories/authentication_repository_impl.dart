@@ -1,7 +1,8 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../utils/errors/connectivity_error.dart';
+import '../../../errors/connectivity_error.dart';
+import '../../../errors/invalid_user_error.dart';
 import '../../domain/repositories/authentication_repository.dart';
 import '../datasources/authentication_data_source.dart';
 
@@ -15,23 +16,35 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Either<Error, Stream<void>> checkLoggedIn() {
     try {
-      final Stream<void> checkLoggedIn =
-          authenticationDataSource.checkLoggedIn();
-
-      return Right<Error, Stream<void>>(checkLoggedIn);
+      return Right<Error, Stream<void>>(
+        authenticationDataSource.checkLoggedIn(),
+      );
     } on ConnectivityError catch (e) {
       return Left<Error, Stream<void>>(e);
     }
   }
 
   @override
-  Future<Either<Error, void>> initialize() async {
+  Future<Either<Error, String>> getCurrentUserId() async {
+    try {
+      return Right<Error, String>(
+        await authenticationDataSource.getCurrentUserId(),
+      );
+    } on ConnectivityError catch (e) {
+      return Left<Error, String>(e);
+    } on InvalidUserError catch (e) {
+      return Left<Error, String>(e);
+    }
+  }
+
+  @override
+  Future<Either<Error, bool>> initialize() async {
     try {
       await authenticationDataSource.initialize();
 
-      return const Right<Error, void>(null);
+      return const Right<Error, bool>(true);
     } on ConnectivityError catch (e) {
-      return Left<Error, void>(e);
+      return Left<Error, bool>(e);
     }
   }
 }

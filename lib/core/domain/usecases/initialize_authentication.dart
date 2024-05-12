@@ -11,7 +11,7 @@ class InitializeAuthentication {
 
   final AuthenticationRepository authenticationRepository;
 
-  Future<Either<Error, void>> call() async =>
+  Future<Either<Error, bool>> call() async =>
       authenticationRepository.initialize();
 }
 
